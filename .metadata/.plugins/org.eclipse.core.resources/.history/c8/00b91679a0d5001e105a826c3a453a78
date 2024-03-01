@@ -1,0 +1,55 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="in.co.rays.dto.UserDTO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<%UserDTO dto=new UserDTO(); 
+List list=(List)request.getAttribute("List");
+Iterator it=list.iterator();
+
+%>
+<body>
+	<h1>User List View</h1>
+	<center>
+		<table border="1" style="background:lime;">
+			<tr>
+
+				<th>Id</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>LoginId</th>
+				<th>Password</th>
+				<th>Date Of Birth</th>
+				<th>Address</th>
+				<th>Edit</th>
+			</tr>
+
+			<%while(it.hasNext()){
+				dto=(UserDTO)it.next();%>
+
+			<tr>
+
+				<td><%=dto.getId()%></td>
+				<td><%=dto.getFirstName() %></td>
+				<td><%=dto.getLastName() %></td>
+				<td><%=dto.getLoginId() %></td>
+				<td><%=dto.getPassword() %></td>
+				<td><%=dto.getDob() %></td>
+				<td><%=dto.getAddress() %></td>
+				<td><a href="#?edit=<%=dto.getId()%>"> edit</a></td>
+
+
+			</tr>
+			<%} %>
+		</table>
+	</center>
+
+
+</body>
+</html>

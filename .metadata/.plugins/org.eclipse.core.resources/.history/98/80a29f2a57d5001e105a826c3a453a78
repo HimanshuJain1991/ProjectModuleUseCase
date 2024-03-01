@@ -1,0 +1,8 @@
+package in.co.rays.ctl;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet (name="RegistrationCtl")
+public class RegistratonCtl {
+
+}
